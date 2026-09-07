@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelAI — Mini Photo Editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">✦</span> Ali AI Editor <small>Mini Editor</small></div>
+    <button id="downloadBtn" class="primary" disabled>Download</button>
+  </header>
+
+  <main class="app">
+    <section class="workspace">
+      <div class="canvas-wrap" id="canvasWrap">
+        <div id="emptyState" class="empty">
+          <div class="upload-icon">↥</div>
+          <h2>Upload a photo</h2>
+          <p>JPG, PNG or WEBP · Your image stays in your browser</p>
+          <label class="upload-btn">
+            Choose photo
+            <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          </label>
+        </div>
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="status">
+        <span id="fileName">No photo selected</span>
+        <button id="resetBtn" class="ghost" disabled>Reset edits</button>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-title">
+        <h2>AI Photo Editor</h2>
+        <span class="badge">LOCAL</span>
+      </div>
+
+      <div class="tool-section">
+        <h3>Quick filters</h3>
+        <div class="filter-grid">
+          <button data-preset="original">Original</button>
+          <button data-preset="vivid">Vivid</button>
+          <button data-preset="bw">B&W</button>
+          <button data-preset="warm">Warm</button>
+          <button data-preset="cool">Cool</button>
+          <button data-preset="soft">Soft</button>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h3>Adjustments</h3>
+        <label class="range-row">Brightness <output id="brightnessValue">100%</output>
+          <input id="brightness" type="range" min="50" max="160" value="100" />
+        </label>
+        <label class="range-row">Contrast <output id="contrastValue">100%</output>
+          <input id="contrast" type="range" min="50" max="160" value="100" />
+        </label>
+        <label class="range-row">Saturation <output id="saturationValue">100%</output>
+          <input id="saturation" type="range" min="0" max="180" value="100" />
+        </label>
+        <label class="range-row">Blur <output id="blurValue">0px</output>
+          <input id="blur" type="range" min="0" max="8" value="0" />
+        </label>
+      </div>
+
+      <div class="tool-section">
+        <h3>Transform</h3>
+        <div class="transform-grid">
+          <button id="rotateLeft">↶ Rotate</button>
+          <button id="rotateRight">Rotate ↷</button>
+          <button id="flipX">↔ Flip</button>
+          <button id="flipY">↕ Flip</button>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h3>AI-style actions</h3>
+        <p class="hint">These are local smart presets—no server or AI API required.</p>
+        <div class="ai-grid">
+          <button id="enhance">✨ Auto Enhance</button>
+          <button id="portrait">◉ Portrait Pop</button>
+        </div>
+      </div>
+
+      <label class="upload-btn wide">
+        Replace photo
+        <input id="fileInput2" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+      </label>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
